@@ -1,6 +1,8 @@
 
 <template>
-  <button type="button" @click="handler">{{ title }}</button>
+  <v-btn variant="tonal" color="secondary" @click="handler">
+    {{ title }}
+  </v-btn>
 </template>
 
 <script>
