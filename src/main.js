@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
-import './styles.scss'
+import './styles/styles.scss'
 import App from './App.vue'
-import vuetify from './plugins/vuetify.js';
+import vuetify from './plugins/vuetify/index.js';
 
 createApp(App)
   .use(vuetify)
