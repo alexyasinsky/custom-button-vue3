@@ -1,6 +1,5 @@
 <script setup>
-  import CustomButton from "./components/CustomButton.vue";
-  import ButtonsCard from "./components/ButtonsCard.vue";
+  import ButtonLink from "./components/ButtonLink.vue";
   const sayHello = () => alert('hello');
   const title = 'hello'
 </script>
@@ -10,9 +9,7 @@
     <v-container>
       <v-row no-gutters>
         <v-col>
-          <buttons-card>
-            <custom-button :title='title' :handler="sayHello"/>
-          </buttons-card>
+          <button-link/>
         </v-col>
       </v-row>
     </v-container>
@@ -20,7 +17,6 @@
 </template>
 
 <style scoped lang="scss">
-
   .wrapper {
     height: 100vh;
     border: 8px solid rgba(255, 255, 255, 1);
