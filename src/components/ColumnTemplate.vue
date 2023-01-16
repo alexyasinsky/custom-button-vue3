@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation=0 color="background">
+  <v-card elevation=0 color="background" class="column-template">
     <v-card-title><h1>{{title}}</h1></v-card-title>
     <v-card-text>
       <slot/>
@@ -20,5 +20,9 @@ export default {
 </script>
 
 <style scoped>
-
+  .column-template {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>

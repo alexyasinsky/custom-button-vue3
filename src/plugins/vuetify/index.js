@@ -2,6 +2,7 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import '@mdi/font/css/materialdesignicons.css'
 
 const myCustomTheme = {
   colors: {
@@ -25,5 +26,8 @@ export default createVuetify({
     themes: {
       myCustomTheme,
     }
-  }
+  },
+  icons: {
+    defaultSet: 'mdi',
+  },
 })

@@ -1,13 +1,22 @@
-
 <template>
   <a
       v-if="category==='link'"
       :href="href"
       class='btn btn__link'
   >
-    {{ title }}
-
+    <slot></slot>
   </a>
+  <v-btn
+      v-else-if="category==='icon'"
+      @click="handler"
+      size="large"
+      variant="plain"
+      class='btn'
+  >
+<!--    <v-icon>{{icon}}</v-icon>-->
+    <slot></slot>
+  </v-btn>
+
   <v-btn
       v-else
       :variant="variant"
@@ -15,63 +24,63 @@
       @click="handler"
       :class="className"
   >
-   {{ title }}
+    {{ title }}
+<!--    <v-icon>{{icon}}</v-icon>-->
   </v-btn>
 </template>
 
 <script>
-  export default {
-    props: {
-      title: {
-        type: String,
-        default: 'Untitled'
-      },
-      handler: {
-        type: Function,
-        default: ()=> {}
-      },
-      variant: {
-        type: String
-      },
-      color: {
-        type: String
-      },
-      category: {
-        type: String
-      },
-      href: {
-        type: String,
-        default: '#'
-      }
+export default {
+  props: {
+    title: {
+      type: String,
     },
+    handler: {
+      type: Function,
+      default: ()=> {}
+    },
+    variant: {
+      type: String
+    },
+    color: {
+      type: String
+    },
+    category: {
+      type: String
+    },
+    href: {
+      type: String,
+      default: '#'
+    },
+    icon: String
+  },
 
-    data() {
-      return {
-        className: ''
-      }
-    },
-    methods: {
+  data() {
+    return {
+      className: ''
     }
+  },
+  methods: {
   }
+}
 </script>
 <style scoped lang="scss">
 
-  .btn {
-    font-family: 'Nunito', sans-serif;
-    &__link {
-
-      text-transform: none !important;
-      font-size: 16px;
-      line-height: 18px;
-      padding: 0;
-      color: #767679;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-      &:visited {
-        color: #C4296C;
-      }
+.btn {
+  font-family: 'Nunito', sans-serif;
+  &__link {
+    text-transform: none !important;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 0;
+    color: #767679;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:visited {
+      color: #C4296C;
     }
   }
+}
 </style>
