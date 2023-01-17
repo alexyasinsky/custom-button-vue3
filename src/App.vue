@@ -20,12 +20,7 @@ const title = 'hello'
             icon="mdi-thumb-up"
             color="blue-lighten-2"
         ></v-btn>
-        <v-btn
-            icon="mdi-heart"
-            color="primary"
-        >
-        </v-btn>
-      </v-row>
+              </v-row>
     </v-container>
   </v-app>
 </template>

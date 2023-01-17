@@ -7,10 +7,10 @@
             :variant="button.variant"
             :size="button.size"
             class="icon"
-            :icon="button.icon"
         >
           <p :class="button.className">{{button.title}}</p>
-          <v-icon>{{button.icon}}</v-icon>
+          <p v-if="button.faIcon"><v-icon>{{button.mdIcon}}</v-icon></p>
+          <font-awesome-icon v-if="button.faIcon" :icon="button.faIcon"/>
         </custom-button>
       </button-card>
     </div>
@@ -37,7 +37,7 @@ export default {
       buttons: [
         {
           id: 'leftArrowIcon',
-          icon: 'mdi-arrow-left-thick',
+          mdIcon: 'mdi-arrow-left-thick',
           category: 'icon',
           className: 'icon__mdi'
         },
@@ -55,7 +55,13 @@ export default {
         },
         {
           id: 'chevronRight',
-          icon: 'mdi-chevron-right',
+          mdIcon: 'mdi-chevron-right',
+          category: 'icon',
+          className: 'icon__mdi'
+        },
+        {
+          id: 'vkIcon',
+          faIcon: 'fa-brands fa-vk',
           category: 'icon',
           className: 'icon__mdi'
         }

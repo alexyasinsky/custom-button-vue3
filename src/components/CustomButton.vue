@@ -13,8 +13,8 @@
       variant="plain"
       class='btn'
   >
-<!--    <v-icon>{{icon}}</v-icon>-->
     <slot></slot>
+
   </v-btn>
 
   <v-btn
@@ -23,9 +23,9 @@
       :color="color"
       @click="handler"
       :class="className"
+
   >
     {{ title }}
-<!--    <v-icon>{{icon}}</v-icon>-->
   </v-btn>
 </template>
 
@@ -51,8 +51,7 @@ export default {
     href: {
       type: String,
       default: '#'
-    },
-    icon: String
+    }
   },
 
   data() {
