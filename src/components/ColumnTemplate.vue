@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "ButtonsCard",
+  name: "ColumnTemplate",
   props: {
     title: {
       type: String,

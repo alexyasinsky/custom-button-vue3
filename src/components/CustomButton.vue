@@ -18,13 +18,12 @@
 
   <v-btn
       v-else
-      :variant="variant"
-      :color="color"
       @click="handler"
-      :class="className"
-
+      size="large"
+      variant="plain"
+      class='btn btn__icon'
   >
-    {{ title }}
+    <slot></slot>
   </v-btn>
 </template>
 

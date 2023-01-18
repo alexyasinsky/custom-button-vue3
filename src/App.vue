@@ -1,6 +1,7 @@
 <script setup>
-import ButtonLink from "./components/ButtonLinkColumn.vue";
-import Icon from './components/IconColumn.vue';
+import ButtonLinkColumn from "./components/ButtonLinkColumn.vue";
+import IconColumn from './components/IconColumn.vue';
+import ButtonMultiSizedColumn from './components/ButtonMultiSizedColumn.vue';
 const sayHello = () => alert('hello');
 const title = 'hello'
 </script>
@@ -10,17 +11,15 @@ const title = 'hello'
     <v-container>
       <v-row no-gutters>
         <v-col>
-          <button-link />
+          <button-link-column />
         </v-col>
         <v-col>
-          <icon></icon>
+          <icon-column />
         </v-col>
-        <v-btn
-            variant="text"
-            icon="mdi-thumb-up"
-            color="blue-lighten-2"
-        ></v-btn>
-              </v-row>
+        <v-col>
+          <button-multi-sized-column />
+        </v-col>
+      </v-row>
     </v-container>
   </v-app>
 </template>

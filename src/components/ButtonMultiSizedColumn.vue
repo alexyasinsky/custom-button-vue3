@@ -1,7 +1,30 @@
 <template>
   <button-list :title='listTitle' class="button__list">
-    <div v-for="button in buttons" :key="button.id">
+    <div 
+      v-for="button in buttons" 
+      :key="button.id"
+      class="buttonCard"
+    >
       <button-card :card-title-small="button.cardTitle">
+        <custom-button
+            :category="button.category"
+            :variant="button.variant"
+            :size="button.size"
+            :color="button.color"
+
+        >
+          <p 
+            v-if='button.title' 
+            :class="button.className"
+          >
+            {{button.title}}
+          </p>
+          <font-awesome-icon 
+            v-if="button.icon" 
+            :icon="button.icon"
+            :class="button.className"
+          />
+        </custom-button>
         <custom-button
             :category="button.category"
             :variant="button.variant"
@@ -33,7 +56,7 @@ import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
-  name: "IconColumn",
+  name: "ButtonMultiSizedColumn",
   components: {
     ButtonList,
     CustomButton,
@@ -41,49 +64,44 @@ export default {
   },
   data() {
     return {
-      listTitle: '(Icon)',
+      listTitle: '(Button Multi-Sized)',
       buttons: [
         {
           id: 'leftArrowIcon',
           icon: "fa-solid fa-arrow-left",
-          category: 'icon',
+          color: 'primary',
         },
         {
           id: 'closeIcon',
           title: '+',
-          category: 'icon',
-          className: 'icon__close'
+          className: 'icon__close',
+          color: 'danger'
         },
         {
           id: 'helpIcon',
           title: '?',
-          category: 'icon',
           className: 'icon__help'
         },
         {
           id: 'chevronRight',
           icon: "fa-solid fa-chevron-right",
-          category: 'icon',
         },
         {
           id: 'googlePlusIcon',
           icon: ['fa-brands', 'google-plus-g'],
-          category: 'icon'
         },
         {
           id: 'vkIcon',
           icon: 'fa-brands fa-vk',
-          category: 'icon',
         },
         {
           id: 'odnoklassnikiIcon',
           icon: 'fa-brands fa-odnoklassniki',
-          category: 'icon',
+
         },
         {
           id: 'pencilIcon',
           icon: "fa-solid fa-pencil",
-          category: 'icon',
           className: 'icon__pencil'
         }
 
@@ -95,6 +113,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .buttonCard {
+    display: flex;
+  }
   .icon {
     &__close {
       font-size: 50px;

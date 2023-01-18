@@ -22,7 +22,7 @@ import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
-  name: "ButtonLink",
+  name: "ButtonLinkColumn",
   components: {
     ButtonList,
     CustomButton,
