@@ -6,11 +6,19 @@
             :category="button.category"
             :variant="button.variant"
             :size="button.size"
-            class="icon"
+
         >
-          <p :class="button.className">{{button.title}}</p>
-          <p v-if="button.faIcon"><v-icon>{{button.mdIcon}}</v-icon></p>
-          <font-awesome-icon v-if="button.faIcon" :icon="button.faIcon"/>
+          <p 
+            v-if='button.title' 
+            :class="button.className"
+          >
+            {{button.title}}
+          </p>
+          <font-awesome-icon 
+            v-if="button.icon" 
+            :icon="button.icon"
+            :class="button.className"
+          />
         </custom-button>
       </button-card>
     </div>
@@ -37,9 +45,8 @@ export default {
       buttons: [
         {
           id: 'leftArrowIcon',
-          mdIcon: 'mdi-arrow-left-thick',
+          icon: "fa-solid fa-arrow-left",
           category: 'icon',
-          className: 'icon__mdi'
         },
         {
           id: 'closeIcon',
@@ -55,16 +62,31 @@ export default {
         },
         {
           id: 'chevronRight',
-          mdIcon: 'mdi-chevron-right',
+          icon: "fa-solid fa-chevron-right",
           category: 'icon',
-          className: 'icon__mdi'
+        },
+        {
+          id: 'googlePlusIcon',
+          icon: ['fa-brands', 'google-plus-g'],
+          category: 'icon'
         },
         {
           id: 'vkIcon',
-          faIcon: 'fa-brands fa-vk',
+          icon: 'fa-brands fa-vk',
           category: 'icon',
-          className: 'icon__mdi'
+        },
+        {
+          id: 'odnoklassnikiIcon',
+          icon: 'fa-brands fa-odnoklassniki',
+          category: 'icon',
+        },
+        {
+          id: 'pencilIcon',
+          icon: "fa-solid fa-pencil",
+          category: 'icon',
+          className: 'icon__pencil'
         }
+
       ]
     }
   }
@@ -74,15 +96,6 @@ export default {
 
 <style scoped lang="scss">
   .icon {
-    display: flex;
-    align-items: center;
-    font-style: normal;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 30px;
-    &__mdi + .mdi {
-      font-size: 35px;
-    }
     &__close {
       font-size: 50px;
       transform: rotate(-45deg);
@@ -90,6 +103,9 @@ export default {
     &__help {
       font-size: 36px;
       transform: rotate(20deg);
+    }
+    &__pencil {
+      transform: rotateY(180deg);
     }
   }
 </style>

@@ -11,10 +11,9 @@
       @click="handler"
       size="large"
       variant="plain"
-      class='btn'
+      class='btn btn__icon'
   >
     <slot></slot>
-
   </v-btn>
 
   <v-btn
@@ -81,5 +80,14 @@ export default {
       color: #C4296C;
     }
   }
+  &__icon {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
 }
+
 </style>
