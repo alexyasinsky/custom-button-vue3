@@ -20,8 +20,8 @@
       v-else
       @click="handler"
       size="large"
-      variant="plain"
       class='btn btn__icon'
+      :color="color"
   >
     <slot></slot>
   </v-btn>

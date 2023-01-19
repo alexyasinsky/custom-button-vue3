@@ -29,6 +29,7 @@
             :category="button.category"
             :variant="button.variant"
             :size="button.size"
+            :color="button.color"
 
         >
           <p 
@@ -80,29 +81,35 @@ export default {
         {
           id: 'helpIcon',
           title: '?',
-          className: 'icon__help'
+          className: 'icon__help',
+          color: 'help'
         },
         {
           id: 'chevronRight',
           icon: "fa-solid fa-chevron-right",
+          color: 'primary'
         },
         {
           id: 'googlePlusIcon',
           icon: ['fa-brands', 'google-plus-g'],
+          color: 'danger'
         },
         {
           id: 'vkIcon',
           icon: 'fa-brands fa-vk',
+          color: 'info'
         },
         {
           id: 'odnoklassnikiIcon',
           icon: 'fa-brands fa-odnoklassniki',
+          color: 'action'
 
         },
         {
           id: 'pencilIcon',
           icon: "fa-solid fa-pencil",
-          className: 'icon__pencil'
+          className: 'icon__pencil',
+          color: 'primary'
         }
 
       ]

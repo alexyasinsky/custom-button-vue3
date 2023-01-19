@@ -14,7 +14,8 @@ const myCustomTheme = {
     danger: '#DF3F3E',
     action: '#ED732E',
     customYellow: '#FFFF00',
-    background: '#1e1e1e'
+    background: '#1e1e1e',
+    help: '#6DD1B0'
   }
 }
 
