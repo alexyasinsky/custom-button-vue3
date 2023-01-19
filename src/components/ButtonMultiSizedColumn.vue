@@ -7,10 +7,10 @@
     >
       <button-card :card-title-small="button.cardTitle">
         <custom-button
-            :category="button.category"
-            :variant="button.variant"
-            :size="button.size"
-            :color="button.color"
+          category="buttonWithIcon"
+          :variant="button.variant"
+          :size="button.size"
+          :color="button.color"
 
         >
           <p 
@@ -26,10 +26,10 @@
           />
         </custom-button>
         <custom-button
-            :category="button.category"
-            :variant="button.variant"
-            :size="button.size"
-            :color="button.color"
+          category="buttonWithIcon"
+          :variant="button.variant"
+          :size="button.size"
+          :color="button.color"
 
         >
           <p 

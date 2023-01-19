@@ -17,10 +17,28 @@
   </v-btn>
 
   <v-btn
-      v-else
+      v-else-if="category==='buttonWithIcon'"
       @click="handler"
       size="large"
       class='btn btn__icon'
+      :color="color"
+  >
+    <slot></slot>
+  </v-btn>
+  <v-btn
+      v-else-if="category==='buttonWithWidget'"
+      @click="handler"
+      size="large"
+      class='btn btn'
+      :color="color"
+  >
+    <slot></slot>
+  </v-btn>
+  <v-btn
+      v-else
+      @click="handler"
+      size="large"
+      class='btn'
       :color="color"
   >
     <slot></slot>
