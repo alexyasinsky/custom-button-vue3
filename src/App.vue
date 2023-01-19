@@ -3,6 +3,7 @@ import ButtonLinkColumn from "./components/ButtonLinkColumn.vue";
 import IconColumn from './components/IconColumn.vue';
 import ButtonMultiSizedColumn from './components/ButtonMultiSizedColumn.vue';
 import ButtonTimerColumn from './components/ButtonTimerColumn.vue';
+import ButtonClassicColumn from './components/ButtonClassicColumn.vue';
 const sayHello = () => alert('hello');
 const title = 'hello'
 </script>
@@ -24,7 +25,7 @@ const title = 'hello'
           <button-timer-column />
         </v-col>
         <v-col>
-
+          <button-classic-column/>
         </v-col>
       </v-row>
     </v-container>

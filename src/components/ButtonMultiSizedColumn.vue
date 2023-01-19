@@ -5,7 +5,7 @@
       :key="button.id"
       class="buttonCard"
     >
-      <button-card :card-title-small="button.cardTitle">
+      <button-card :card-title-small="mobile">
         <custom-button
           category="buttonWithIcon"
           :variant="button.variant"
@@ -25,6 +25,8 @@
             :class="button.className"
           />
         </custom-button>
+      </button-card>
+      <button-card :card-title-small="desktop">
         <custom-button
           category="buttonWithIcon"
           :variant="button.variant"

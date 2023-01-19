@@ -1,11 +1,14 @@
 <template>
   <button-list :title='listTitle' class="button__list">
-    <div v-for="button in buttons" :key="button.id">
-      <button-card :card-title-small="button.cardTitle">
+    <div 
+      v-for="button in buttons" 
+      :key="button.id"
+    >
+      <button-card :card-title="button.cardTitle">
         <custom-button
-            :category="button.category"
-            :variant="button.variant"
-            :size="button.size"
+          :variant="button.variant"
+          :size="button.size"
+          :color="button.color"
 
         >
           <p 
@@ -33,7 +36,7 @@ import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
-  name: "IconColumn",
+  name: "ButtonClassicColumn",
   components: {
     ButtonList,
     CustomButton,
@@ -41,52 +44,51 @@ export default {
   },
   data() {
     return {
-      listTitle: '(Icon)',
+      listTitle: '(Button Classic)',
       buttons: [
         {
+          cardTitle: '(Primary)',
           id: Math.floor(Math.random() * 100000),
-          icon: "fa-solid fa-arrow-left",
-          category: 'icon',
+          title: 'Отправить письмо',
+          color: 'primary',
         },
         {
+          cardTitle: '(Secondary)',
           id: Math.floor(Math.random() * 100000),
-          title: '+',
-          category: 'icon',
-          className: 'icon__close'
+          title: 'Отправить письмо',
+          color: 'secondary'
         },
         {
+          cardTitle: '(Warning)',
           id: Math.floor(Math.random() * 100000),
-          title: '?',
-          category: 'icon',
-          className: 'icon__help'
+          title: 'Отправить письмо',
+          color: 'warning'
         },
         {
+          cardTitle: '(Disabled)',
           id: Math.floor(Math.random() * 100000),
-          icon: "fa-solid fa-chevron-right",
-          category: 'icon',
+          title: 'Отправить письмо',
+          color: 'disabled'
         },
         {
+          cardTitle: '(Info)',
           id: Math.floor(Math.random() * 100000),
-          icon: ['fa-brands', 'google-plus-g'],
-          category: 'icon'
+          title: 'Отправить письмо',
+          color: 'info'
         },
         {
+          cardTitle: '(Danger)',
           id: Math.floor(Math.random() * 100000),
-          icon: 'fa-brands fa-vk',
-          category: 'icon',
+          title: 'Отправить письмо',
+          color: 'danger'
         },
         {
+          cardTitle: '(Action)',
           id: Math.floor(Math.random() * 100000),
-          icon: 'fa-brands fa-odnoklassniki',
-          category: 'icon',
-        },
-        {
-          id: Math.floor(Math.random() * 100000),
-          icon: "fa-solid fa-pencil",
-          category: 'icon',
-          className: 'icon__pencil'
-        }
+          title: 'Отправить письмо',
+          color: 'action'
 
+        }
       ]
     }
   }
@@ -95,17 +97,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .icon {
-    &__close {
-      font-size: 50px;
-      transform: rotate(-45deg);
-    }
-    &__help {
-      font-size: 36px;
-      transform: rotate(20deg);
-    }
-    &__pencil {
-      transform: rotateY(180deg);
-    }
-  }
 </style>
