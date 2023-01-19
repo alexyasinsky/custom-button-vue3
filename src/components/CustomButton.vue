@@ -12,7 +12,8 @@
         @click="handler"
         :class='buttonClassName'
     >
-      <slot></slot>
+      <h6><slot name="title"></slot></h6>
+      <slot name="icon"></slot>
     </button>
   </div>
 </template>
@@ -126,6 +127,9 @@ export default {
   }
   &__disabled {
     background: #EFEFEF;
+    h6 {
+      color: #767679;
+    }
   }
   &__info {
     background: #0083B6;

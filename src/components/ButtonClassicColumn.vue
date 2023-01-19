@@ -11,7 +11,9 @@
           :color="button.color"
           :className="button.className"
         >
-          <h6>{{button.title}}</h6>
+        <template v-slot:title>
+          {{button.title}}
+        </template>  
         </custom-button>
       </button-card>
     </div>

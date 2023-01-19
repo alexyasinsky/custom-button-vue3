@@ -13,12 +13,12 @@
           :color="button.color"
           :className="button.className"
         >
-          <p 
+        <template v-slot:title 
             v-if='button.title' 
             :class="button.iconClassName"
           >
             {{button.title}}
-          </p>
+        </template>
           <font-awesome-icon 
             v-if="button.icon" 
             :icon="button.icon"
