@@ -2,7 +2,7 @@
 import ButtonLinkColumn from "./components/ButtonLinkColumn.vue";
 import IconColumn from './components/IconColumn.vue';
 import ButtonMultiSizedColumn from './components/ButtonMultiSizedColumn.vue';
-import ButtonTimerColumn from './components/ButtonTimerColumn.vue';
+import ButtonWithWidgetColumn from './components/ButtonWithWidgetColumn.vue';
 import ButtonClassicColumn from './components/ButtonClassicColumn.vue';
 const sayHello = () => alert('hello');
 const title = 'hello'
@@ -22,7 +22,7 @@ const title = 'hello'
           <button-multi-sized-column />
         </v-col>
         <v-col>
-          <button-timer-column />
+          <button-with-widget-column />
         </v-col>
         <v-col>
           <button-classic-column/>

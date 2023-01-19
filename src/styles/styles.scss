@@ -11,6 +11,20 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
+button {
+  height: 60px;
+  border-radius: 20px / 18px;
+  display: block;
+  font-family: 'Phosphate', sans-serif;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 639px) {
+  button {
+    height: 52px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Phosphate', sans-serif;
   font-style: normal;

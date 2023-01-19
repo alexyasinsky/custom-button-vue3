@@ -1,9 +1,9 @@
 <template>
-  <button-list :title='listTitle' class="button__list">
+  <default-column :title='listTitle'>
     <div v-for="button in buttons" :key="button.id">
       <button-card :card-title-small="button.cardTitle">
         <custom-button
-            :category="button.category"
+            category="icon"
             :variant="button.variant"
             :size="button.size"
 
@@ -23,19 +23,19 @@
       </button-card>
     </div>
 
-  </button-list>
+  </default-column>
 </template>
 
 <script>
 
-import ButtonList from "./ColumnTemplate.vue";
+import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
   name: "IconColumn",
   components: {
-    ButtonList,
+    DefaultColumn,
     CustomButton,
     ButtonCard
   },
@@ -46,45 +46,42 @@ export default {
         {
           id: Math.floor(Math.random() * 100000),
           icon: "fa-solid fa-arrow-left",
-          category: 'icon',
+          className: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
           title: '+',
-          category: 'icon',
-          className: 'icon__close'
+          className: 'icon icon__close'
         },
         {
           id: Math.floor(Math.random() * 100000),
           title: '?',
-          category: 'icon',
-          className: 'icon__help'
+          className: 'icon icon__help'
         },
         {
           id: Math.floor(Math.random() * 100000),
           icon: "fa-solid fa-chevron-right",
-          category: 'icon',
+          className: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: ['fa-brands', 'google-plus-g'],
-          category: 'icon'
+          icon: 'fa-brands fa-google-plus-g',
+          className: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
           icon: 'fa-brands fa-vk',
-          category: 'icon',
+          className: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
           icon: 'fa-brands fa-odnoklassniki',
-          category: 'icon',
+          className: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
           icon: "fa-solid fa-pencil",
-          category: 'icon',
-          className: 'icon__pencil'
+          className: 'icon icon__pencil'
         }
 
       ]
@@ -96,16 +93,22 @@ export default {
 
 <style scoped lang="scss">
   .icon {
+    height: 25px;
     &__close {
       font-size: 50px;
       transform: rotate(-45deg);
+      font-weight: 900;
+      line-height: 30px;
     }
     &__help {
       font-size: 36px;
       transform: rotate(20deg);
+      font-weight: 900;
+      line-height: 30px;
     }
     &__pencil {
       transform: rotateY(180deg);
+
     }
   }
 </style>

@@ -1,67 +1,67 @@
 <template>
-  <button-list :title='listTitle' class="button__list">
+  <default-column :title='listTitle'>
     <div 
       v-for="button in buttons" 
       :key="button.id"
-      class="buttonCard"
+      class="buttonCardWrapper"
     >
-      <button-card :card-title-small="mobile">
-        <custom-button
+      <button-card card-title-small="mobile">
+          <custom-button
           category="buttonWithIcon"
           :variant="button.variant"
           :size="button.size"
           :color="button.color"
-
+          :className="button.className"
         >
           <p 
             v-if='button.title' 
-            :class="button.className"
+            :class="button.iconClassName"
           >
             {{button.title}}
           </p>
           <font-awesome-icon 
             v-if="button.icon" 
             :icon="button.icon"
-            :class="button.className"
+            :class="button.iconClassName"
           />
         </custom-button>
       </button-card>
-      <button-card :card-title-small="desktop">
-        <custom-button
+      <button-card  card-title-small="desktop">
+          <custom-button
           category="buttonWithIcon"
           :variant="button.variant"
           :size="button.size"
           :color="button.color"
-
+          :className="button.className"
         >
           <p 
             v-if='button.title' 
-            :class="button.className"
+            :class="button.iconClassName"
           >
             {{button.title}}
           </p>
           <font-awesome-icon 
             v-if="button.icon" 
             :icon="button.icon"
-            :class="button.className"
+            :class="button.iconClassName"
           />
         </custom-button>
       </button-card>
     </div>
 
-  </button-list>
+  </default-column>
 </template>
 
 <script>
 
-import ButtonList from "./ColumnTemplate.vue";
+import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
   name: "ButtonMultiSizedColumn",
   components: {
-    ButtonList,
+    DefaultColumn,
     CustomButton,
     ButtonCard
   },
@@ -72,46 +72,51 @@ export default {
         {
           id: 'leftArrowIcon',
           icon: "fa-solid fa-arrow-left",
-          color: 'primary',
+          iconClassName: 'icon',
+          className: 'btn__primary',
         },
         {
           id: 'closeIcon',
           title: '+',
-          className: 'icon__close',
-          color: 'danger'
+          iconClassName: 'icon__close',
+          className: 'btn__danger'
         },
         {
           id: 'helpIcon',
           title: '?',
-          className: 'icon__help',
-          color: 'help'
+          iconClassName: 'icon__help',
+          className: 'btn__help'
         },
         {
           id: 'chevronRight',
           icon: "fa-solid fa-chevron-right",
-          color: 'primary'
+          iconClassName: 'icon',
+          className: 'btn__primary'
         },
         {
           id: 'googlePlusIcon',
-          icon: ['fa-brands', 'google-plus-g'],
-          color: 'danger'
+          icon: 'fa-brands fa-google-plus-g',
+          iconClassName: 'icon',
+          className: 'btn__danger'
         },
         {
           id: 'vkIcon',
           icon: 'fa-brands fa-vk',
-          color: 'info'
+          iconClassName: 'icon',
+          className: 'btn__info'
         },
         {
           id: 'odnoklassnikiIcon',
           icon: 'fa-brands fa-odnoklassniki',
-          color: 'action'
+          iconClassName: 'icon',
+          className: 'btn__action'
 
         },
         {
           id: 'pencilIcon',
           icon: "fa-solid fa-pencil",
-          className: 'icon__pencil',
-          color: 'primary'
+          iconClassName: 'icon icon__pencil',
+          className: 'btn__primary'
         }
 
       ]
@@ -122,20 +127,27 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .buttonCard {
+  .buttonCardWrapper {
     display: flex;
+    justify-content: space-around;
   }
   .icon {
+    height: 25px;
     &__close {
       font-size: 50px;
       transform: rotate(-45deg);
+      font-weight: 900;
+      line-height: 30px;
     }
     &__help {
       font-size: 36px;
       transform: rotate(20deg);
+      font-weight: 900;
+      line-height: 30px;
     }
     &__pencil {
       transform: rotateY(180deg);
+
     }
   }
 </style>

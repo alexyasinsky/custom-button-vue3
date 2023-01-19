@@ -1,48 +1,29 @@
 <template>
-  <a
+  <div class="btn__wrapper">
+    <a
       v-if="category==='link'"
       :href="href"
-      class='btn btn__link'
-  >
-    <slot></slot>
-  </a>
-  <v-btn
-      v-else-if="category==='icon'"
-      @click="handler"
-      size="large"
-      variant="plain"
-      class='btn btn__icon'
-  >
-    <slot></slot>
-  </v-btn>
-
-  <v-btn
-      v-else-if="category==='buttonWithIcon'"
-      @click="handler"
-      size="large"
-      class='btn btn__icon'
-      :color="color"
-  >
-    <slot></slot>
-  </v-btn>
-  <v-btn
-      v-else-if="category==='buttonWithWidget'"
-      @click="handler"
-      size="large"
-      class='btn btn'
-      :color="color"
-  >
-    <slot></slot>
-  </v-btn>
-  <v-btn
-      v-else
-      @click="handler"
-      size="large"
-      class='btn'
-      :color="color"
-  >
-    <slot></slot>
-  </v-btn>
+      class='btn__link'
+    >
+      <slot></slot>
+    </a>
+    <v-btn
+        v-else-if="category==='icon'"
+        @click="handler"
+        size="large"
+        variant="plain"
+        :class='buttonClassName' 
+    >
+      <slot></slot>
+    </v-btn>
+    <button
+        v-else
+        @click="handler"
+        :class='buttonClassName'
+    >
+      <slot></slot>
+    </button>
+  </div>
 </template>
 
 <script>
@@ -67,22 +48,43 @@ export default {
     href: {
       type: String,
       default: '#'
+    },
+    className: {
+      type: String,
+      default: ''
     }
   },
 
   data() {
     return {
-      className: ''
+      buttonClassName: ''
     }
   },
   methods: {
+  },
+  mounted() {
+    switch (this.category) {
+      case 'icon':
+        this.buttonClassName = this.className + ' btn__icon'
+        break;
+      case 'buttonWithIcon':
+        this.buttonClassName = this.className + ' btn__btnWithIcon'
+        break;
+      case 'buttonWithWidget':
+        this.buttonClassName = this.className + ' btn__btnWithWidget'
+        break;
+      default:
+        this.buttonClassName = this.className + ' btn__classic'
+    }
   }
 }
 </script>
 <style scoped lang="scss">
 
 .btn {
-  font-family: 'Nunito', sans-serif;
+  &__wrapper {
+    margin: 8px 0;
+  }
   &__link {
     text-transform: none !important;
     font-size: 16px;
@@ -105,6 +107,54 @@ export default {
     margin-bottom: 30px;
     font-size: 25px;
   }
+  &__btnWithIcon {
+    width: 60px;
+  }
+  &__btnWithWidget {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 40px;
+    width: 330px;
+  }
+  &__classic {
+    width: 263px;
+
+  }
+  &__primary {
+    background: #702C7E;
+  }
+  &__secondary {
+    background: #C4296C;
+  }
+  &__danger {
+    background: #DF3F3E;
+  }
+  &__warning {
+    background: #F4BA46;
+  }
+  &__disabled {
+    background: #EFEFEF;
+    color: #767679;
+  }
+  &__info {
+    background: #0083B6;
+  }
+  &__action {
+    background: #ED732E;
+  }
+  &__help {
+    background: #6DD1B0;
+  }
 }
+
+@media (max-width: 639px) {
+  .btn {
+    &__btnWithIcon {
+      width: 52px;
+    }
+  }
+}
+
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <button-list :title='listTitle' class="button__list">
+  <default-column :title='listTitle'>
     <div 
       v-for="button in buttons" 
       :key="button.id"
@@ -9,36 +9,26 @@
           :variant="button.variant"
           :size="button.size"
           :color="button.color"
-
+          :className="button.className"
         >
-          <p 
-            v-if='button.title' 
-            :class="button.className"
-          >
-            {{button.title}}
-          </p>
-          <font-awesome-icon 
-            v-if="button.icon" 
-            :icon="button.icon"
-            :class="button.className"
-          />
+          <p>{{button.title}}</p>
         </custom-button>
       </button-card>
     </div>
 
-  </button-list>
+  </default-column>
 </template>
 
 <script>
 
-import ButtonList from "./ColumnTemplate.vue";
+import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
   name: "ButtonClassicColumn",
   components: {
-    ButtonList,
+    DefaultColumn,
     CustomButton,
     ButtonCard
   },
@@ -50,43 +40,43 @@ export default {
           cardTitle: '(Primary)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          color: 'primary',
+          className: 'btn__primary',
         },
         {
           cardTitle: '(Secondary)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          color: 'secondary'
+          className: 'btn__secondary'
         },
         {
           cardTitle: '(Warning)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          color: 'warning'
+          className: 'btn__warning'
         },
         {
           cardTitle: '(Disabled)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          color: 'disabled'
+          className: 'btn__disabled'
         },
         {
           cardTitle: '(Info)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          color: 'info'
+          className: 'btn__info'
         },
         {
           cardTitle: '(Danger)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          color: 'danger'
+          className: 'btn__danger'
         },
         {
           cardTitle: '(Action)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          color: 'action'
+          className: 'btn__action'
 
         }
       ]

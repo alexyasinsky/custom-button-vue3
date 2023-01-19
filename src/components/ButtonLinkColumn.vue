@@ -1,5 +1,5 @@
 <template>
-  <button-list :title='listTitle'>
+  <default-column :title='listTitle'>
     <div v-for="button in buttons" :key="button.id">
       <button-card :card-title="button.cardTitle">
         <custom-button
@@ -12,19 +12,19 @@
       </button-card>
     </div>
 
-  </button-list>
+  </default-column>
 </template>
 
 <script>
 
-import ButtonList from "./ColumnTemplate.vue";
+import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
   name: "ButtonLinkColumn",
   components: {
-    ButtonList,
+    DefaultColumn,
     CustomButton,
     ButtonCard
   },
