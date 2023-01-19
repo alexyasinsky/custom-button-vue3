@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      listTitle: '(ButtonLink)',
+      listTitle: '(Button Link)',
       buttons: [
         {
           id: Math.floor(Math.random() * 100000),

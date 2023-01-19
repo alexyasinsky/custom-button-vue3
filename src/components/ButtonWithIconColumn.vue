@@ -59,7 +59,7 @@ import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 
 export default {
-  name: "ButtonMultiSizedColumn",
+  name: "ButtonWithIconColumn",
   components: {
     DefaultColumn,
     CustomButton,

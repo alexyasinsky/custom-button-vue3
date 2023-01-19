@@ -1,7 +1,7 @@
 <script setup>
 import ButtonLinkColumn from "./components/ButtonLinkColumn.vue";
 import IconColumn from './components/IconColumn.vue';
-import ButtonMultiSizedColumn from './components/ButtonMultiSizedColumn.vue';
+import ButtonWithIconColumn from './components/ButtonWithIconColumn.vue';
 import ButtonWithWidgetColumn from './components/ButtonWithWidgetColumn.vue';
 import ButtonClassicColumn from './components/ButtonClassicColumn.vue';
 const sayHello = () => alert('hello');
@@ -19,7 +19,7 @@ const title = 'hello'
           <icon-column />
         </v-col>
         <v-col>
-          <button-multi-sized-column />
+          <button-with-icon-column />
         </v-col>
         <v-col>
           <button-with-widget-column />
@@ -38,4 +38,7 @@ const title = 'hello'
   border: 8px solid rgba(255, 255, 255, 1);
 }
 
+button {
+  font-family: 'Changa One', cursive;
+}
 </style>

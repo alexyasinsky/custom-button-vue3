@@ -8,7 +8,7 @@
             category="buttonWithWidget"
             :className="button.className"
         > 
-          <p>{{button.buttonTitle}}</p>
+          <h6>{{button.buttonTitle}}</h6>
           <vue-countdown 
             v-if="counting" 
             @end="onCountdownEnd" 
@@ -41,7 +41,7 @@ export default {
   },
   data() {
     return {
-      listTitle: '(ButtonTimer)',
+      listTitle: '(Button Timer)',
       buttons: [
         {
           id: Math.floor(Math.random() * 100000),
@@ -74,7 +74,7 @@ export default {
 
 <style scoped lang="scss">
   .timer {
-    font-size: 18px;
+    font-size: 13px;
     line-height: 24px;
     background: #DF3F3E;
     color: #FFFFFF;

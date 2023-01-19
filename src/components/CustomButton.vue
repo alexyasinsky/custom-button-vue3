@@ -7,15 +7,6 @@
     >
       <slot></slot>
     </a>
-    <v-btn
-        v-else-if="category==='icon'"
-        @click="handler"
-        size="large"
-        variant="plain"
-        :class='buttonClassName' 
-    >
-      <slot></slot>
-    </v-btn>
     <button
         v-else
         @click="handler"
@@ -115,10 +106,10 @@ export default {
     align-items: center;
     justify-content: space-around;
     padding: 0 40px;
-    width: 330px;
+    width: 350px;
   }
   &__classic {
-    width: 263px;
+    width: 270px;
 
   }
   &__primary {
@@ -135,7 +126,6 @@ export default {
   }
   &__disabled {
     background: #EFEFEF;
-    color: #767679;
   }
   &__info {
     background: #0083B6;

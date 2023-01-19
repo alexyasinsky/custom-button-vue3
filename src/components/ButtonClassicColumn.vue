@@ -11,7 +11,7 @@
           :color="button.color"
           :className="button.className"
         >
-          <p>{{button.title}}</p>
+          <h6>{{button.title}}</h6>
         </custom-button>
       </button-card>
     </div>
@@ -87,4 +87,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 </style>
