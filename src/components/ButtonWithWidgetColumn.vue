@@ -8,17 +8,11 @@
             category="buttonWithWidget"
             :className="button.className"
         > 
-          <h6>{{button.buttonTitle}}</h6>
-          <vue-countdown 
-            v-if="counting" 
-            @end="onCountdownEnd" 
-            :transform="transformSlotProps" 
-            :time="3 * 60 * 1000" 
-            v-slot="{ minutes, seconds }"
-            class="timer"
-          >
-            {{ minutes }}:{{ seconds }} 
-          </vue-countdown>
+          <template v-slot:title>
+            {{button.buttonTitle}}
+            <timer-widget minutesProp="3" />
+          </template>    
+          
         </custom-button>
       </button-card>
     </div>
@@ -31,13 +25,15 @@
 import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
+import TimerWidget from './TimerWidget.vue';
 
 export default {
   name: "ButtonWithWidgetColumn",
   components: {
     DefaultColumn,
     CustomButton,
-    ButtonCard
+    ButtonCard,
+    TimerWidget
   },
   data() {
     return {
@@ -51,35 +47,14 @@ export default {
           className: 'btn__disabled',
         }
       ],
-      counting: true
     }
   },
-  methods: {
-    onCountdownEnd: function () {
-      this.counting = false;
-    },
-    transformSlotProps(props) {
-      const formattedProps = {};
-
-      Object.entries(props).forEach(([key, value]) => {
-        formattedProps[key] = value < 10 ? `0${value}` : String(value);
-      });
-
-      return formattedProps;
-    },
-  }
+  
 
 }
 </script>
 
 <style scoped lang="scss">
-  .timer {
-    font-size: 13px;
-    line-height: 24px;
-    background: #DF3F3E;
-    color: #FFFFFF;
-    padding: 3px 6px;
-    border-radius: 12px / 14px;
-  }
+  
 
 </style>

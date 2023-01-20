@@ -1,11 +1,9 @@
 <script setup>
-import ButtonLinkColumn from "./components/ButtonLinkColumn.vue";
-import IconColumn from './components/IconColumn.vue';
-import ButtonWithIconColumn from './components/ButtonWithIconColumn.vue';
-import ButtonWithWidgetColumn from './components/ButtonWithWidgetColumn.vue';
-import ButtonClassicColumn from './components/ButtonClassicColumn.vue';
-const sayHello = () => alert('hello');
-const title = 'hello'
+  import ButtonLinkColumn from "./components/ButtonLinkColumn.vue";
+  import IconColumn from './components/IconColumn.vue';
+  import ButtonWithIconColumn from './components/ButtonWithIconColumn.vue';
+  import ButtonWithWidgetColumn from './components/ButtonWithWidgetColumn.vue';
+  import ButtonClassicColumn from './components/ButtonClassicColumn.vue';
 </script>
 
 <template>
@@ -34,11 +32,8 @@ const title = 'hello'
 
 <style scoped lang="scss">
 .wrapper {
-  height: 100vh;
+  height: 100%;
   border: 8px solid rgba(255, 255, 255, 1);
 }
 
-button {
-  font-family: 'Changa One', cursive;
-}
 </style>

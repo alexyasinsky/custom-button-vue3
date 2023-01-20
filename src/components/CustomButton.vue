@@ -8,12 +8,13 @@
       <slot></slot>
     </a>
     <button
-        v-else
-        @click="handler"
-        :class='buttonClassName'
+      v-else
+      @click="handler"
+      :class='buttonClassName'
     >
       <h6><slot name="title"></slot></h6>
       <slot name="icon"></slot>
+      <slot name="customIcon"></slot>
     </button>
   </div>
 </template>
@@ -27,9 +28,6 @@ export default {
     handler: {
       type: Function,
       default: ()=> {}
-    },
-    variant: {
-      type: String
     },
     color: {
       type: String
@@ -60,7 +58,7 @@ export default {
         this.buttonClassName = this.className + ' btn__icon'
         break;
       case 'buttonWithIcon':
-        this.buttonClassName = this.className + ' btn__btnWithIcon'
+        this.buttonClassName = `btn__${this.color} btn__btnWithIcon`
         break;
       case 'buttonWithWidget':
         this.buttonClassName = this.className + ' btn__btnWithWidget'
@@ -94,13 +92,11 @@ export default {
   &__icon {
     display: flex;
     align-items: center;
-    font-style: normal;
-    text-align: center;
-    margin-bottom: 30px;
     font-size: 25px;
   }
   &__btnWithIcon {
     width: 60px;
+
   }
   &__btnWithWidget {
     display: flex;

@@ -5,46 +5,68 @@
       :key="button.id"
       class="buttonCardWrapper"
     >
-      <button-card card-title-small="mobile">
-          <custom-button
-          category="buttonWithIcon"
-          :variant="button.variant"
-          :size="button.size"
+      <button-card  card-title-small="mobile">
+        <custom-button
+          :category="button.category"
           :color="button.color"
-          :className="button.className"
         >
-        <template v-slot:title 
-            v-if='button.title' 
-            :class="button.iconClassName"
+          <template 
+            v-if="button.title" 
+            v-slot:title 
+            >
+            <p 
+              :class="button.iconClassName"
+            >
+              {{button.title}}
+            </p>
+          </template>
+          <template 
+            v-if="button.customIcon" 
+            v-slot:customIcon 
+            >
+            <custom-icon :name="button.customIcon"/>
+          </template>
+          <template 
+            v-if="button.icon"  
+            v-slot:icon
           >
-            {{button.title}}
-        </template>
-          <font-awesome-icon 
-            v-if="button.icon" 
-            :icon="button.icon"
-            :class="button.iconClassName"
-          />
+            <font-awesome-icon 
+              :icon="button.icon"
+              :class="button.iconClassName"
+            />
+          </template>  
         </custom-button>
       </button-card>
       <button-card  card-title-small="desktop">
-          <custom-button
-          category="buttonWithIcon"
-          :variant="button.variant"
-          :size="button.size"
+        <custom-button
+          :category="button.category"
           :color="button.color"
-          :className="button.className"
         >
-          <p 
-            v-if='button.title' 
-            :class="button.iconClassName"
+          <template 
+            v-if="button.title" 
+            v-slot:title 
+            >
+            <p 
+              :class="button.iconClassName"
+            >
+              {{button.title}}
+            </p>
+          </template>
+          <template 
+            v-if="button.customIcon" 
+            v-slot:customIcon 
+            >
+            <custom-icon :name="button.customIcon"/>
+          </template>
+          <template 
+            v-if="button.icon"  
+            v-slot:icon
           >
-            {{button.title}}
-          </p>
-          <font-awesome-icon 
-            v-if="button.icon" 
-            :icon="button.icon"
-            :class="button.iconClassName"
-          />
+            <font-awesome-icon 
+              :icon="button.icon"
+              :class="button.iconClassName"
+            />
+          </template>  
         </custom-button>
       </button-card>
     </div>
@@ -57,13 +79,15 @@
 import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
+import CustomIcon from './CustomIcon.vue';
 
 export default {
   name: "ButtonWithIconColumn",
   components: {
     DefaultColumn,
     CustomButton,
-    ButtonCard
+    ButtonCard,
+    CustomIcon
   },
   data() {
     return {
@@ -73,50 +97,57 @@ export default {
           id: 'leftArrowIcon',
           icon: "fa-solid fa-arrow-left",
           iconClassName: 'icon',
-          className: 'btn__primary',
+          color: 'primary',
+          category: "buttonWithIcon"
         },
         {
           id: 'closeIcon',
-          title: '+',
-          iconClassName: 'icon__close',
-          className: 'btn__danger'
+          customIcon: 'close',
+          iconClassName: 'icon',
+          color: 'danger',
+          category: "buttonWithIcon"
         },
         {
           id: 'helpIcon',
-          title: '?',
-          iconClassName: 'icon__help',
-          className: 'btn__help'
+          customIcon: 'help',
+          color: 'help',
+          category: "buttonWithIcon"
         },
         {
           id: 'chevronRight',
           icon: "fa-solid fa-chevron-right",
           iconClassName: 'icon',
-          className: 'btn__primary'
+          color: 'primary',
+          category: "buttonWithIcon"
         },
         {
           id: 'googlePlusIcon',
           icon: 'fa-brands fa-google-plus-g',
           iconClassName: 'icon',
-          className: 'btn__danger'
+          color: 'danger',
+          category: "buttonWithIcon"
         },
         {
           id: 'vkIcon',
           icon: 'fa-brands fa-vk',
           iconClassName: 'icon',
-          className: 'btn__info'
+          color: 'info',
+          category: "buttonWithIcon"
         },
         {
           id: 'odnoklassnikiIcon',
           icon: 'fa-brands fa-odnoklassniki',
           iconClassName: 'icon',
-          className: 'btn__action'
+          color: 'action',
+          category: "buttonWithIcon"
 
         },
         {
           id: 'pencilIcon',
           icon: "fa-solid fa-pencil",
           iconClassName: 'icon icon__pencil',
-          className: 'btn__primary'
+          color: 'primary',
+          category: "buttonWithIcon"
         }
 
       ]
@@ -132,22 +163,15 @@ export default {
     justify-content: space-around;
   }
   .icon {
-    height: 25px;
-    &__close {
-      font-size: 50px;
-      transform: rotate(-45deg);
-      font-weight: 900;
-      line-height: 30px;
-    }
-    &__help {
-      font-size: 36px;
-      transform: rotate(20deg);
-      font-weight: 900;
-      line-height: 30px;
-    }
+    height: 20px;
     &__pencil {
       transform: rotateY(180deg);
-
     }
   }
+
+  @media (max-width: 639px) {
+  .icon {
+    height: 16px;
+  }
+}
 </style>

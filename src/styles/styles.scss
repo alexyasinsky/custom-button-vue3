@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@900&display=swap');
 
 
-
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +15,6 @@ body {
 button {
   height: 60px;
   border-radius: 20px / 18px;
-  display: block;
   text-transform: uppercase !important;
   font-family: 'Unbounded', cursive;
   span {
@@ -38,5 +36,4 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 24px;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin-bottom: 8px;
 }

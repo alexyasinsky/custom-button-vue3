@@ -1,24 +1,31 @@
 <template>
   <default-column :title='listTitle'>
     <div v-for="button in buttons" :key="button.id">
-      <button-card :card-title-small="button.cardTitle">
+      <button-card>
         <custom-button
             category="icon"
             :variant="button.variant"
             :size="button.size"
-
         >
-          <p 
-            v-if='button.title' 
-            :class="button.className"
+          <template 
+            v-if="button.title" 
+            v-slot:title
           >
-            {{button.title}}
-          </p>
-          <font-awesome-icon 
+            <p 
+              :class="button.className"
+            >
+              {{button.title}}
+            </p>
+          </template>  
+          <template  
             v-if="button.icon" 
-            :icon="button.icon"
-            :class="button.className"
-          />
+            v-slot:icon
+          >
+            <font-awesome-icon 
+              :icon="button.icon"
+              :class="button.className"
+            />
+          </template>  
         </custom-button>
       </button-card>
     </div>
@@ -93,15 +100,18 @@ export default {
 
 <style scoped lang="scss">
   .icon {
-    height: 25px;
+    height: 20px;
     &__close {
-      font-size: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 35px;
       transform: rotate(-45deg);
       font-weight: 900;
       line-height: 30px;
+      margin-left: -12px;
     }
     &__help {
-      font-size: 36px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 25px;
       transform: rotate(20deg);
       font-weight: 900;
       line-height: 30px;

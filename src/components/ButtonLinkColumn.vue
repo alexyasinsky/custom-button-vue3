@@ -3,15 +3,13 @@
     <div v-for="button in buttons" :key="button.id">
       <button-card :card-title="button.cardTitle">
         <custom-button
-            :variant="button.variant"
-            :category="button.buttonCategory"
+            :category="button.category"
             :href="button.href"
         >
           <p>{{button.buttonTitle}}</p>
         </custom-button>
       </button-card>
     </div>
-
   </default-column>
 </template>
 
@@ -36,16 +34,13 @@ export default {
           id: Math.floor(Math.random() * 100000),
           cardTitle: '(Hover)',
           buttonTitle: 'Напомнить пин-код',
-          variant: 'text',
-          buttonCategory: 'link',
-          href: '1234'
+          category: 'link',
         },
         {
           id: Math.floor(Math.random() * 1000),
           cardTitle: '(Pressed)',
           buttonTitle: 'Напомнить пин-код',
-          variant: 'text',
-          buttonCategory: 'link',
+          category: 'link',
         }
       ]
     }
