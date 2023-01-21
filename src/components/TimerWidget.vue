@@ -47,11 +47,13 @@
 <style scoped lang="scss">
   .timer {
     font-size: 13px;
+    width: 70px;
     line-height: 24px;
     background: #DF3F3E;
     color: #FFFFFF;
     padding: 3px 6px;
     border-radius: 12px / 14px;
+    margin-left: 10px;
   }
 
 </style>

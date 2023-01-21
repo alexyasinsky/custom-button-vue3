@@ -6,10 +6,7 @@
     >
       <button-card :card-title="button.cardTitle">
         <custom-button
-          :variant="button.variant"
-          :size="button.size"
           :color="button.color"
-          :className="button.className"
         >
         <template v-slot:title>
           {{button.title}}
@@ -42,44 +39,43 @@ export default {
           cardTitle: '(Primary)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          className: 'btn__primary',
+          color: 'primary',
         },
         {
           cardTitle: '(Secondary)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          className: 'btn__secondary'
+          color: 'secondary'
         },
         {
           cardTitle: '(Warning)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          className: 'btn__warning'
+          color: 'warning'
         },
         {
           cardTitle: '(Disabled)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          className: 'btn__disabled'
+          color: 'disabled'
         },
         {
           cardTitle: '(Info)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          className: 'btn__info'
+          color: 'info'
         },
         {
           cardTitle: '(Danger)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          className: 'btn__danger'
+          color: 'danger'
         },
         {
           cardTitle: '(Action)',
           id: Math.floor(Math.random() * 100000),
           title: 'Отправить письмо',
-          className: 'btn__action'
-
+          color: 'action'
         }
       ]
     }

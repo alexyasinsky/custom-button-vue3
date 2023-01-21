@@ -3,10 +3,8 @@
     <div v-for="button in buttons" :key="button.id">
       <button-card :card-title="button.cardTitle">
         <custom-button
-            :variant="button.variant"
-            :href="button.href"
-            category="buttonWithWidget"
-            :className="button.className"
+            :category="category"
+            :color="button.color"
         > 
           <template v-slot:title>
             {{button.buttonTitle}}
@@ -38,13 +36,15 @@ export default {
   data() {
     return {
       listTitle: '(Button Timer)',
+
+      category: 'buttonWithWidget',
+
       buttons: [
         {
           id: Math.floor(Math.random() * 100000),
           cardTitle: '(Timer)',
           buttonTitle: 'Повторное письмо',
-          variant: 'text',
-          className: 'btn__disabled',
+          color: 'disabled',
         }
       ],
     }

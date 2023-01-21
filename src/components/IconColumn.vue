@@ -3,29 +3,20 @@
     <div v-for="button in buttons" :key="button.id">
       <button-card>
         <custom-button
-            category="icon"
-            :variant="button.variant"
-            :size="button.size"
+            :category="category"
         >
-          <template 
-            v-if="button.title" 
-            v-slot:title
+          <template
+              v-if="button.customIcon"
+              v-slot:customIcon
           >
-            <p 
-              :class="button.className"
-            >
-              {{button.title}}
-            </p>
-          </template>  
-          <template  
-            v-if="button.icon" 
-            v-slot:icon
+            <custom-icon :iconName="button.customIcon"/>
+          </template>
+          <template
+              v-if="button.faIcon"
+              v-slot:faIcon
           >
-            <font-awesome-icon 
-              :icon="button.icon"
-              :class="button.className"
-            />
-          </template>  
+            <fa-icon :iconName="button.faIcon"/>
+          </template>
         </custom-button>
       </button-card>
     </div>
@@ -38,57 +29,54 @@
 import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
+import CustomIcon from './CustomIcon.vue';
+import faIcon from "./faIcon.vue";
 
 export default {
   name: "IconColumn",
   components: {
     DefaultColumn,
     CustomButton,
-    ButtonCard
+    ButtonCard,
+    CustomIcon,
+    faIcon
   },
   data() {
     return {
       listTitle: '(Icon)',
+      category: 'icon',
       buttons: [
         {
           id: Math.floor(Math.random() * 100000),
-          icon: "fa-solid fa-arrow-left",
-          className: 'icon'
+          faIcon: 'arrowLeft'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          title: '+',
-          className: 'icon icon__close'
+          customIcon: 'close',
         },
         {
           id: Math.floor(Math.random() * 100000),
-          title: '?',
-          className: 'icon icon__help'
+          customIcon: 'help'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: "fa-solid fa-chevron-right",
-          className: 'icon'
+          faIcon: 'chevronRight'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'fa-brands fa-google-plus-g',
-          className: 'icon'
+          faIcon: 'googlePlusG',
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'fa-brands fa-vk',
-          className: 'icon'
+          faIcon: 'vk',
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'fa-brands fa-odnoklassniki',
-          className: 'icon'
+          faIcon: 'odnoklassniki',
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: "fa-solid fa-pencil",
-          className: 'icon icon__pencil'
+          faIcon: "pencilReverseY",
         }
 
       ]
@@ -99,26 +87,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .icon {
-    height: 20px;
-    &__close {
-      font-family: 'Nunito', sans-serif;
-      font-size: 35px;
-      transform: rotate(-45deg);
-      font-weight: 900;
-      line-height: 30px;
-      margin-left: -12px;
-    }
-    &__help {
-      font-family: 'Nunito', sans-serif;
-      font-size: 25px;
-      transform: rotate(20deg);
-      font-weight: 900;
-      line-height: 30px;
-    }
-    &__pencil {
-      transform: rotateY(180deg);
 
-    }
-  }
 </style>

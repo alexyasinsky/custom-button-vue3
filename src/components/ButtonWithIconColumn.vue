@@ -5,72 +5,31 @@
       :key="button.id"
       class="buttonCardWrapper"
     >
-      <button-card  card-title-small="mobile">
-        <custom-button
-          :category="button.category"
-          :color="button.color"
-        >
-          <template 
-            v-if="button.title" 
-            v-slot:title 
-            >
-            <p 
-              :class="button.iconClassName"
-            >
-              {{button.title}}
-            </p>
-          </template>
-          <template 
-            v-if="button.customIcon" 
-            v-slot:customIcon 
-            >
-            <custom-icon :name="button.customIcon"/>
-          </template>
-          <template 
-            v-if="button.icon"  
-            v-slot:icon
+      <div
+        v-for="title in cardTitles"
+        :key="Math.floor(Math.random() * 100000)"
+      >
+        <button-card  :card-title-small="title">
+          <custom-button
+              :category="category"
+              :color="button.color"
           >
-            <font-awesome-icon 
-              :icon="button.icon"
-              :class="button.iconClassName"
-            />
-          </template>  
-        </custom-button>
-      </button-card>
-      <button-card  card-title-small="desktop">
-        <custom-button
-          :category="button.category"
-          :color="button.color"
-        >
-          <template 
-            v-if="button.title" 
-            v-slot:title 
+            <template
+                v-if="button.customIcon"
+                v-slot:customIcon
             >
-            <p 
-              :class="button.iconClassName"
+              <custom-icon :iconName="button.customIcon"/>
+            </template>
+            <template
+                v-if="button.faIcon"
+                v-slot:faIcon
             >
-              {{button.title}}
-            </p>
-          </template>
-          <template 
-            v-if="button.customIcon" 
-            v-slot:customIcon 
-            >
-            <custom-icon :name="button.customIcon"/>
-          </template>
-          <template 
-            v-if="button.icon"  
-            v-slot:icon
-          >
-            <font-awesome-icon 
-              :icon="button.icon"
-              :class="button.iconClassName"
-            />
-          </template>  
-        </custom-button>
-      </button-card>
+              <fa-icon :iconName="button.faIcon"/>
+            </template>
+          </custom-button>
+        </button-card>
+      </div>
     </div>
-
   </default-column>
 </template>
 
@@ -80,6 +39,7 @@ import DefaultColumn from './DefaultColumn.vue';
 import CustomButton from "./CustomButton.vue";
 import ButtonCard from "./ButtonCard.vue";
 import CustomIcon from './CustomIcon.vue';
+import faIcon from "./faIcon.vue";
 
 export default {
   name: "ButtonWithIconColumn",
@@ -87,67 +47,61 @@ export default {
     DefaultColumn,
     CustomButton,
     ButtonCard,
-    CustomIcon
+    CustomIcon,
+    faIcon
   },
   data() {
     return {
       listTitle: '(Button Multi-Sized)',
+
+      cardTitles: [
+          'mobile',
+          'desktop'
+      ],
+
+      category: 'buttonWithIcon',
+
       buttons: [
         {
-          id: 'leftArrowIcon',
-          icon: "fa-solid fa-arrow-left",
-          iconClassName: 'icon',
+          id: Math.floor(Math.random() * 100000),
           color: 'primary',
-          category: "buttonWithIcon"
+          faIcon: 'arrowLeft',
         },
         {
-          id: 'closeIcon',
+          id: Math.floor(Math.random() * 100000),
           customIcon: 'close',
-          iconClassName: 'icon',
           color: 'danger',
-          category: "buttonWithIcon"
         },
         {
-          id: 'helpIcon',
+          id: Math.floor(Math.random() * 100000),
           customIcon: 'help',
           color: 'help',
-          category: "buttonWithIcon"
         },
         {
-          id: 'chevronRight',
-          icon: "fa-solid fa-chevron-right",
-          iconClassName: 'icon',
+          id: Math.floor(Math.random() * 100000),
           color: 'primary',
-          category: "buttonWithIcon"
+          faIcon: 'chevronRight',
         },
         {
-          id: 'googlePlusIcon',
-          icon: 'fa-brands fa-google-plus-g',
-          iconClassName: 'icon',
+          id: Math.floor(Math.random() * 100000),
           color: 'danger',
-          category: "buttonWithIcon"
+          faIcon: 'googlePlusG',
         },
         {
-          id: 'vkIcon',
-          icon: 'fa-brands fa-vk',
-          iconClassName: 'icon',
+          id: Math.floor(Math.random() * 100000),
           color: 'info',
-          category: "buttonWithIcon"
+          faIcon: 'vk',
         },
         {
-          id: 'odnoklassnikiIcon',
-          icon: 'fa-brands fa-odnoklassniki',
-          iconClassName: 'icon',
+          id: Math.floor(Math.random() * 100000),
           color: 'action',
-          category: "buttonWithIcon"
+          faIcon: 'odnoklassniki',
 
         },
         {
-          id: 'pencilIcon',
-          icon: "fa-solid fa-pencil",
-          iconClassName: 'icon icon__pencil',
+          id: Math.floor(Math.random() * 100000),
           color: 'primary',
-          category: "buttonWithIcon"
+          faIcon: 'pencilReverseY',
         }
 
       ]
@@ -162,16 +116,5 @@ export default {
     display: flex;
     justify-content: space-around;
   }
-  .icon {
-    height: 20px;
-    &__pencil {
-      transform: rotateY(180deg);
-    }
-  }
 
-  @media (max-width: 639px) {
-  .icon {
-    height: 16px;
-  }
-}
 </style>

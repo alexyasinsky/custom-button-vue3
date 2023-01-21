@@ -12,8 +12,8 @@
       @click="handler"
       :class='buttonClassName'
     >
-      <h6><slot name="title"></slot></h6>
-      <slot name="icon"></slot>
+      <slot name="title"></slot>
+      <slot name="faIcon"></slot>
       <slot name="customIcon"></slot>
     </button>
   </div>
@@ -38,10 +38,6 @@ export default {
     href: {
       type: String,
       default: '#'
-    },
-    className: {
-      type: String,
-      default: ''
     }
   },
 
@@ -50,21 +46,23 @@ export default {
       buttonClassName: ''
     }
   },
+
   methods: {
   },
+
   mounted() {
     switch (this.category) {
       case 'icon':
-        this.buttonClassName = this.className + ' btn__icon'
+        this.buttonClassName = 'btn__icon'
         break;
       case 'buttonWithIcon':
-        this.buttonClassName = `btn__${this.color} btn__btnWithIcon`
+        this.buttonClassName = `btn__color_${this.color} btn__btnWithIcon`
         break;
       case 'buttonWithWidget':
-        this.buttonClassName = this.className + ' btn__btnWithWidget'
+        this.buttonClassName = `btn__color_${this.color} btn__btnWithWidget`
         break;
       default:
-        this.buttonClassName = this.className + ' btn__classic'
+        this.buttonClassName = `btn__color_${this.color} btn__classic`
     }
   }
 }
@@ -90,55 +88,53 @@ export default {
     }
   }
   &__icon {
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-  }
-  &__btnWithIcon {
-    width: 60px;
 
   }
+
+  &__btnWithIcon {
+    width: 60px;
+  }
+
   &__btnWithWidget {
     display: flex;
     align-items: center;
-    justify-content: space-around;
     padding: 0 40px;
-    width: 350px;
   }
   &__classic {
-    width: 270px;
-
+    padding: 0 40px;
   }
-  &__primary {
-    background: #702C7E;
-  }
-  &__secondary {
-    background: #C4296C;
-  }
-  &__danger {
-    background: #DF3F3E;
-  }
-  &__warning {
-    background: #F4BA46;
-  }
-  &__disabled {
-    background: #EFEFEF;
-    h6 {
+  &__color {
+    &_primary {
+      background: #702C7E;
+    }
+    &_secondary {
+      background: #C4296C;
+    }
+    &_danger {
+      background: #DF3F3E;
+    }
+    &_warning {
+      background: #F4BA46;
+    }
+    &_disabled {
+      background: #EFEFEF;
       color: #767679;
     }
+    &_info {
+      background: #0083B6;
+    }
+    &_action {
+      background: #ED732E;
+    }
+    &_help {
+      background: #6DD1B0;
+    }
   }
-  &__info {
-    background: #0083B6;
-  }
-  &__action {
-    background: #ED732E;
-  }
-  &__help {
-    background: #6DD1B0;
-  }
+
 }
 
 @media (max-width: 639px) {
+
   .btn {
     &__btnWithIcon {
       width: 52px;

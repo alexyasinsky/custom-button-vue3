@@ -16,10 +16,9 @@ button {
   height: 60px;
   border-radius: 20px / 18px;
   text-transform: uppercase !important;
-  font-family: 'Unbounded', cursive;
-  span {
-    font-family: 'Unbounded', cursive;
-  }
+  font-family: 'Unbounded', cursive !important;
+  font-size: 13px !important;
+  line-height: 24px !important;
 }
 
 @media (max-width: 639px) {
@@ -30,10 +29,6 @@ button {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Unbounded', cursive;
-  font-style: normal;
-  text-align: center;
-  font-size: 13px;
-  line-height: 24px;
   text-transform: uppercase;
   color: #FFFFFF;
 }

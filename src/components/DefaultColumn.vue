@@ -1,6 +1,6 @@
 <template>
   <div class="defaultColumn">
-    <h1>{{title}}</h1>
+    <h2>{{title}}</h2>
     <slot/>
   </div>
 </template>
@@ -22,8 +22,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1 {
-      margin-bottom: 20px;
+    h2 {
+      margin-bottom: 30px;
     }
   }
 </style>

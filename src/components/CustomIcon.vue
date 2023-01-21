@@ -1,6 +1,6 @@
 <template>
-  <p :class="icons[name].className">
-    {{ icons[name].title }}
+  <p :class="icons[iconName].className">
+    {{ icons[iconName].title }}
   </p>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: 'CustomIcon',
   props: {
-    name: {
+    iconName: {
       type: String,
       required: true
     }
@@ -40,7 +40,7 @@ export default {
     transform: rotate(-45deg);
     font-weight: 900;
     line-height: 30px;
-    margin-left: -1px;
+    margin-left: -4px;
   }
   .help {
     font-family: 'Nunito', sans-serif;
@@ -55,8 +55,9 @@ export default {
     .btn__btnWithIcon {
       .close {
       font-size: 30px;
+      margin-left: -1px;
     }
-    
+
       .help{
         font-size: 25px;
       }
