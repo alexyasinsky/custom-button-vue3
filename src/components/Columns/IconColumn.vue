@@ -24,28 +24,18 @@
   </default-column>
 </template>
 
-<script>
+<script setup>
 
-import DefaultColumn from './DefaultColumn.vue';
-import CustomButton from "./CustomButton.vue";
-import ButtonCard from "./ButtonCard.vue";
-import CustomIcon from './CustomIcon.vue';
-import faIcon from "./faIcon.vue";
+import DefaultColumn from './CustomColumn.vue';
+import CustomButton from "../CustomButton.vue";
+import ButtonCard from "../CustomButtonCard.vue";
+import CustomIcon from '../Icons/CustomIcon.vue';
+import faIcon from "../Icons/faIcon.vue";
 
-export default {
-  name: "IconColumn",
-  components: {
-    DefaultColumn,
-    CustomButton,
-    ButtonCard,
-    CustomIcon,
-    faIcon
-  },
-  data() {
-    return {
-      listTitle: '(Icon)',
-      category: 'icon',
-      buttons: [
+
+const listTitle = '(Icon)';
+const category =  'icon';
+const buttons = [
         {
           id: Math.floor(Math.random() * 100000),
           faIcon: 'arrowLeft'
@@ -80,10 +70,7 @@ export default {
         }
 
       ]
-    }
-  }
 
-}
 </script>
 
 <style scoped lang="scss">

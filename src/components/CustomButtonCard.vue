@@ -6,18 +6,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ButtonCard",
-  props: {
-    cardTitle: {
-      type: String
-    },
-    cardTitleSmall: {
-      type: String
-    }
-  }
-}
+<script setup>
+
+  const props = defineProps({
+    cardTitle: String,
+    cardTitleSmall: String
+  })
+
 </script>
 
 <style scoped lang="scss">

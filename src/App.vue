@@ -1,9 +1,9 @@
 <script setup>
-  import ButtonLinkColumn from "./components/ButtonLinkColumn.vue";
-  import IconColumn from './components/IconColumn.vue';
-  import ButtonWithIconColumn from './components/ButtonWithIconColumn.vue';
-  import ButtonWithWidgetColumn from './components/ButtonWithWidgetColumn.vue';
-  import ButtonClassicColumn from './components/ButtonClassicColumn.vue';
+  import ButtonLinkColumn from "./components/Columns/ButtonLinkColumn.vue";
+  import IconColumn from './components/Columns/IconColumn.vue';
+  import ButtonWithIconColumn from './components/Columns/ButtonWithIconColumn.vue';
+  import ButtonWithWidgetColumn from './components/Columns/ButtonWithWidgetColumn.vue';
+  import ButtonClassicColumn from './components/Columns/ButtonClassicColumn.vue';
 </script>
 
 <template>

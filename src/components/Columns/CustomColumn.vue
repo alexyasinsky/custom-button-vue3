@@ -5,16 +5,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "DefaultColumn",
-  props: {
-    title: {
-      type: String,
-      default: 'Untitled'
-    }
-  }
-}
+<script setup>
+
+const props = defineProps({
+  title: String
+})
+
 </script>
 
 <style scoped lang="scss">

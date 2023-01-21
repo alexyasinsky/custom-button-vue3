@@ -4,32 +4,28 @@
   </p>
 </template>
 
-<script>
-export default {
-  name: 'CustomIcon',
-  props: {
+<script setup>
+
+  const props = defineProps({
     iconName: {
       type: String,
       required: true
     }
-  },
-  data() {
-    return {
-      icons: {
-        'close' : {
-          className: 'close',
-          title: '+'
-        },
-        
-        'help': {
-          className: 'help',
-          title: '?'
-        },
+  });
 
-      }
-    }
+  const icons = {
+    'close' : {
+      className: 'close',
+      title: '+'
+    },
+
+    'help': {
+      className: 'help',
+      title: '?'
+    },
+
   }
-}
+
 </script>
 
 <style lang="scss" scoped>

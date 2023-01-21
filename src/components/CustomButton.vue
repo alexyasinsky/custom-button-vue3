@@ -7,7 +7,7 @@
     >
       <slot></slot>
     </a>
-    <button
+    <button ref="buttonClassName"
       v-else
       @click="handler"
       :class='buttonClassName'
@@ -19,9 +19,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
+<script setup>
+
+import {onMounted, ref} from "vue";
+
+  const props = defineProps({
     title: {
       type: String,
     },
@@ -39,33 +41,26 @@ export default {
       type: String,
       default: '#'
     }
-  },
+  })
 
-  data() {
-    return {
-      buttonClassName: ''
-    }
-  },
+  let buttonClassName = ref('');
 
-  methods: {
-  },
-
-  mounted() {
-    switch (this.category) {
+  onMounted(()=> {
+    switch (props.category) {
       case 'icon':
-        this.buttonClassName = 'btn__icon'
+        buttonClassName = 'btn__icon'
         break;
       case 'buttonWithIcon':
-        this.buttonClassName = `btn__color_${this.color} btn__btnWithIcon`
+        buttonClassName = `btn__color_${props.color} btn__btnWithIcon`
         break;
       case 'buttonWithWidget':
-        this.buttonClassName = `btn__color_${this.color} btn__btnWithWidget`
+        buttonClassName = `btn__color_${props.color} btn__btnWithWidget`
         break;
       default:
-        this.buttonClassName = `btn__color_${this.color} btn__classic`
+        buttonClassName = `btn__color_${props.color} btn__classic`
     }
-  }
-}
+  })
+
 </script>
 <style scoped lang="scss">
 
