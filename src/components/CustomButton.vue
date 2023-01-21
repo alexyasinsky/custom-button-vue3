@@ -13,8 +13,7 @@
       :class='buttonClassName'
     >
       <slot name="title"></slot>
-      <slot name="faIcon"></slot>
-      <slot name="customIcon"></slot>
+      <slot name="icon"></slot>
     </button>
   </div>
 </template>
