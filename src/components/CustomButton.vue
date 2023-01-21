@@ -12,8 +12,7 @@
       @click="handler"
       :class='buttonClassName'
     >
-      <slot name="title"></slot>
-      <slot name="icon"></slot>
+      <slot></slot>
     </button>
   </div>
 </template>

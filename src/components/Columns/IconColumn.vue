@@ -5,9 +5,7 @@
         <custom-button
             :category="category"
         >
-          <template v-slot:icon>
             <component :is="button.component" :iconName="button.icon"/>
-          </template>
         </custom-button>
       </button-card>
     </div>

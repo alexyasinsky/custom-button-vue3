@@ -5,12 +5,9 @@
         <custom-button
             :category="category"
             :color="button.color"
-        > 
-          <template v-slot:title>
+        >
             {{button.buttonTitle}}
             <timer-widget minutesProp="3" />
-          </template>    
-          
         </custom-button>
       </button-card>
     </div>

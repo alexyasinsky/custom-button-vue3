@@ -8,9 +8,7 @@
         <custom-button
           :color="button.color"
         >
-        <template v-slot:title>
           {{button.title}}
-        </template>  
         </custom-button>
       </button-card>
     </div>

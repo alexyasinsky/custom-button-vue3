@@ -14,9 +14,7 @@
               :category="category"
               :color="button.color"
           >
-            <template v-slot:icon>
-              <component :is="button.component" :iconName="button.icon"/>
-            </template>
+            <component :is="button.component" :iconName="button.icon"/>
           </custom-button>
         </button-card>
       </div>
