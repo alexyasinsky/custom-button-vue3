@@ -3,7 +3,7 @@
     <div v-for="button in buttons" :key="button.id">
       <button-card :card-title="button.cardTitle">
         <custom-button
-            :category="category"
+            :category="button.category"
             :color="button.color"
         >
             {{button.buttonTitle}}
@@ -26,14 +26,13 @@ import TimerWidget from '../Widgets/TimerWidget.vue';
 
 const listTitle = '(Button Timer)';
 
-const category = 'buttonWithWidget';
-
 const buttons = [
       {
         id: Math.floor(Math.random() * 100000),
         cardTitle: '(Timer)',
         buttonTitle: 'Повторное письмо',
         color: 'disabled',
+        category: 'buttonWithWidget'
       }
       ]
 </script>

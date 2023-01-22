@@ -3,13 +3,15 @@
     <a
       v-if="category==='link'"
       :href="href"
-      class='btn__link'
+      ref="buttonClassName"
+      :class='buttonClassName'
     >
       <slot></slot>
     </a>
-    <button ref="buttonClassName"
+    <button
       v-else
       @click="handler"
+      ref="buttonClassName"
       :class='buttonClassName'
     >
       <slot></slot>
@@ -45,17 +47,21 @@ import {onMounted, ref} from "vue";
 
   onMounted(()=> {
     switch (props.category) {
+      case 'link':
+        buttonClassName = 'btn__link';
+        break;
       case 'icon':
-        buttonClassName = 'btn__icon'
+        buttonClassName = 'btn__icon';
         break;
       case 'buttonWithIcon':
-        buttonClassName = `btn__color_${props.color} btn__btnWithIcon`
+        buttonClassName = `btn__color_${props.color} btn__btnWithIcon`;
         break;
       case 'buttonWithWidget':
-        buttonClassName = `btn__color_${props.color} btn__btnWithWidget`
+        buttonClassName = `btn__color_${props.color} btn__btnWithWidget`;
         break;
-      default:
-        buttonClassName = `btn__color_${props.color} btn__classic`
+      case 'buttonClassic':
+        buttonClassName = `btn__color_${props.color} btn__classic`;
+        break;
     }
   })
 

@@ -7,6 +7,7 @@
       <button-card :card-title="button.cardTitle">
         <custom-button
           :color="button.color"
+          :category="button.category"
         >
           {{button.title}}
         </custom-button>
@@ -29,42 +30,49 @@
       id: Math.floor(Math.random() * 100000),
       title: 'Отправить письмо',
       color: 'primary',
+      category: 'buttonClassic'
     },
     {
       cardTitle: '(Secondary)',
       id: Math.floor(Math.random() * 100000),
       title: 'Отправить письмо',
-      color: 'secondary'
+      color: 'secondary',
+      category: 'buttonClassic'
     },
     {
       cardTitle: '(Warning)',
       id: Math.floor(Math.random() * 100000),
       title: 'Отправить письмо',
-      color: 'warning'
+      color: 'warning',
+      category: 'buttonClassic'
     },
     {
       cardTitle: '(Disabled)',
       id: Math.floor(Math.random() * 100000),
       title: 'Отправить письмо',
-      color: 'disabled'
+      color: 'disabled',
+      category: 'buttonClassic'
     },
     {
       cardTitle: '(Info)',
       id: Math.floor(Math.random() * 100000),
       title: 'Отправить письмо',
-      color: 'info'
+      color: 'info',
+      category: 'buttonClassic'
     },
     {
       cardTitle: '(Danger)',
       id: Math.floor(Math.random() * 100000),
       title: 'Отправить письмо',
-      color: 'danger'
+      color: 'danger',
+      category: 'buttonClassic'
     },
     {
       cardTitle: '(Action)',
       id: Math.floor(Math.random() * 100000),
       title: 'Отправить письмо',
-      color: 'action'
+      color: 'action',
+      category: 'buttonClassic'
     }
   ];
 </script>

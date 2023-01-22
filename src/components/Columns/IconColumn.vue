@@ -3,9 +3,9 @@
     <div v-for="button in buttons" :key="button.id">
       <button-card>
         <custom-button
-            :category="category"
+            :category="button.category"
         >
-            <component :is="button.component" :iconName="button.icon"/>
+            <component :is="button.icon.component" :iconName="button.icon.name"/>
         </custom-button>
       </button-card>
     </div>
@@ -18,53 +18,50 @@
 import DefaultColumn from './CustomColumn.vue';
 import CustomButton from "../CustomButton.vue";
 import ButtonCard from "../CustomButtonCard.vue";
-import CustomIcon from '../Icons/CustomIcon.vue';
-import FaIcon from "../Icons/faIcon.vue";
+import iconsLibrary from "../Icons/iconsLibrary.js";
 
 
 const listTitle = '(Icon)';
-const category =  'icon';
 const buttons = [
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'arrowLeft',
-          component: FaIcon
-
+          icon: iconsLibrary.arrowLeft,
+          category: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'close',
-          component: CustomIcon
+          icon: iconsLibrary.close,
+          category: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'help',
-          component: CustomIcon
+          icon: iconsLibrary.help,
+          category: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'chevronRight',
-          component: FaIcon
+          icon: iconsLibrary.chevronRight,
+          category: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'googlePlusG',
-          component: FaIcon
+          icon: iconsLibrary.googlePlusG,
+          category: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'vk',
-          component: FaIcon
+          icon: iconsLibrary.vk,
+          category: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: 'odnoklassniki',
-          component: FaIcon
+          icon: iconsLibrary.odnoklassniki,
+          category: 'icon'
         },
         {
           id: Math.floor(Math.random() * 100000),
-          icon: "pencilReverseY",
-          component: FaIcon
+          icon: iconsLibrary.pencilReverseY,
+          category: 'icon'
         }
 
       ]

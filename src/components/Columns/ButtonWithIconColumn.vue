@@ -11,10 +11,10 @@
       >
         <button-card  :card-title-small="title">
           <custom-button
-              :category="category"
+              :category="button.category"
               :color="button.color"
           >
-            <component :is="button.component" :iconName="button.icon"/>
+            <component :is="button.icon.component" :iconName="button.icon.name"/>
           </custom-button>
         </button-card>
       </div>
@@ -27,64 +27,60 @@
   import DefaultColumn from './CustomColumn.vue';
   import CustomButton from "../CustomButton.vue";
   import ButtonCard from "../CustomButtonCard.vue";
-  import CustomIcon from '../Icons/CustomIcon.vue';
-  import FaIcon from "../Icons/faIcon.vue";
-
+  import iconsLibrary from "../Icons/iconsLibrary.js";
 
   const listTitle = '(Button Multi-Sized)';
 
   const cardTitles = ['mobile', 'desktop'];
 
-  const category = 'buttonWithIcon';
-
   const buttons = [
     {
       id: Math.floor(Math.random() * 100000),
       color: 'primary',
-      icon: 'arrowLeft',
-      component: FaIcon
+      icon: iconsLibrary.arrowLeft,
+      category: 'buttonWithIcon'
     },
     {
       id: Math.floor(Math.random() * 100000),
-      icon: 'close',
       color: 'danger',
-      component: CustomIcon
+      icon: iconsLibrary.close,
+      category: 'buttonWithIcon'
     },
     {
       id: Math.floor(Math.random() * 100000),
-      icon: 'help',
       color: 'help',
-      component: CustomIcon
+      icon: iconsLibrary.help,
+      category: 'buttonWithIcon'
     },
     {
       id: Math.floor(Math.random() * 100000),
       color: 'primary',
-      icon: 'chevronRight',
-      component: FaIcon
+      icon: iconsLibrary.chevronRight,
+      category: 'buttonWithIcon'
     },
     {
       id: Math.floor(Math.random() * 100000),
       color: 'danger',
-      icon: 'googlePlusG',
-      component: FaIcon
+      icon: iconsLibrary.googlePlusG,
+      category: 'buttonWithIcon'
     },
     {
       id: Math.floor(Math.random() * 100000),
       color: 'info',
-      icon: 'vk',
-      component: FaIcon
+      icon: iconsLibrary.vk,
+      category: 'buttonWithIcon'
     },
     {
       id: Math.floor(Math.random() * 100000),
       color: 'action',
-      icon: 'odnoklassniki',
-      component: FaIcon
+      icon: iconsLibrary.odnoklassniki,
+      category: 'buttonWithIcon'
     },
     {
       id: Math.floor(Math.random() * 100000),
       color: 'primary',
-      icon: 'pencilReverseY',
-      component: FaIcon
+      icon: iconsLibrary.pencilReverseY,
+      category: 'buttonWithIcon'
     }
   ]
 
